@@ -1,12 +1,12 @@
 // Get all the ids
-const searchField = document.getElementById('search-field');
+const searchInput = document.getElementById('search-field');
 const bookContainer = document.getElementById('book-container');
 const errorMessage = document.getElementById('error-message');
 const DataCount = document.getElementById('count');
 
 // Loading Spinner
 const toggleSpinner = displaySpinnerStyle =>{
-    document.getElementById('spinner').style.display = displaySpinnerStyle;
+    document.getElementById('spinner-container').style.display = displaySpinnerStyle;
 }
 
 // Toggle Search Result Function
@@ -19,12 +19,12 @@ const toggleSearchResult = displaySpinnerStyle =>{
 
 // Search Button Fuction
 const loadBook = () => {
-    const searchField = searchField.value;
+    const searchField = searchInput.value;
     
     // Clear Search field
     DataCount.innerHTML = '';
     bookContainer.innerHTML = '';
-    searchField.value = "";
+    searchInput.value = "";
     errorMessage.innerHTML = '';
     
     // Handle Error Message
@@ -83,7 +83,6 @@ const displayBook = (data , books) => {
         </div>`;
         bookContainer.appendChild(div);
     });
-    
     toggleSpinner('none');
     toggleSearchResult('block');
 }
